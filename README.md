@@ -1,5 +1,5 @@
 # Arvores (remoção de  elemento)
----
+--- Heloisa Ribeiro heloisa.ribeiro@fatec.sp.gov.br
 
 ## Objetivos
 
