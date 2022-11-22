@@ -83,7 +83,7 @@ void menu()
 void inicializar()
 {
 
-	// provisÛrio porque n„o libera a memoria usada pela arvore
+	// provis√≥rio porque n√£o libera a memoria usada pela arvore
 	raiz = NULL;
 
 	cout << "Arvore inicializada \n";
@@ -245,9 +245,39 @@ void removerElementoArvore(NO* no, int valor) {
 
 	// caso 1: sem filhos	
 	
+if(atual->dir == NULL && atual->esq == NULL) {
+		if(pai == NULL) {
+			free(raiz);
+			raiz = NULL;
+			return;
+		}
+
+		if(pai->esq == atual)
+			pai->esq = NULL;
+		else
+			pai->dir = NULL;
+
+		free(atual);
+		return;
 
 	// caso 2: um filho	
-	
+	NO* filho = NULL;
+	if(atual->dir == NULL && atual->esq != NULL)
+		filho = atual->esq;
+		
+	else if(atual->dir != NULL && atual->esq == NULL)
+		filho = atual->dir;
+
+	if(pai->dir == atual) {
+		pai->dir = filho;
+		free(atual);
+
+		return;
+	} else {
+		pai->esq = filho;
+		free(atual);
+
+		return;
 
 	// caso 3: dois filhos
 
